@@ -29,6 +29,10 @@ type UserMessageData = UserEventData & {
 
 
 const socketEvents = (socket: Socket, io: Server) => {
+  socket.on('connected', () => {
+    console.log(`${socket.id}: connected`)
+  })
+
   socket.on(Events.JOIN_ROOM, (data: UserEventData) => {
     const { username, roomname } = data
     socket.join(roomname)

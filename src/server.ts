@@ -1,11 +1,9 @@
 import express, { Express, json } from 'express'
 import * as http from 'node:http'
 import cors from 'cors'
-import dotenv from 'dotenv'
 import { router } from './utils/routes'
 import { socketIO } from './utils/socketio'
 
-dotenv.config()
 
 const port = process.env.PORT || 3000
 const app: Express = express()

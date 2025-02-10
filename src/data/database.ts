@@ -26,9 +26,9 @@ export const getRoom = (roomname: string) => {
   return room
 }
 
-const addRoom = (room: string) => {
+const addRoom = (roomname: string) => {
   const newRoom: Room = {
-    name: room,
+    name: roomname,
     users: []
   }
   db.rooms.push(newRoom)
@@ -53,8 +53,8 @@ export const joinUserToRoom = (username: string, roomname: string) => {
   }
 
   user.isOnline = true
-  const userInRoom = room.users.includes(username)
-  if (!userInRoom) {
+  const isUserInRoom = room.users.includes(username)
+  if (!isUserInRoom) {
     room.users.push(user.username)
   }
 }
